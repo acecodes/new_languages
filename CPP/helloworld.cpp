@@ -2,9 +2,17 @@
 // Description: The first script every programmer should write in any new language
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-	cout << "Hello world!" << endl;
+	// First for-loop for handling rows
+	for (int i = 0; i < 6; i++) {
+		//second for loop for handling columns
+		for (int j = 0; j < 4; j++)
+			// setw sets the width of the columns
+			cout << setw(17) << "Hello world!";
+		cout << endl;
+	}
 	return 0;
 }
