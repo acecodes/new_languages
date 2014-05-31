@@ -2,10 +2,13 @@
 // Description: The first script every programmer should write in any new language
 
 #include <iostream>
+// Required for setw()
 #include <iomanip>
 using namespace std;
 
 int main() {
+	// Set cout to right-align
+	cout << setiosflags(ios::left);
 	// First for-loop for handling rows
 	for (int i = 0; i < 6; i++) {
 		//second for loop for handling columns
