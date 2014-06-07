@@ -14,11 +14,15 @@ int main() {
 	string last_name;
 	cin >> last_name;
 
+	cout << "Please enter a number for the spacing you'd like to see: ";
+	int pad;
+	cin >> pad;
+
 	// Build the welcome message
 	const string greeting = "Hello, " + first_name + " " + last_name + "!";
 
 	// Number of blanks surrounding the greeting
-	const int pad = 1;
+	// const int pad = 1;
 
 	// Number of rows to write
 	const int rows = pad * 2 + 3;
@@ -45,7 +49,7 @@ int main() {
 				// Check if we are on the border
 				if (r == 0 || r == rows - 1 || 
 					c == 0 || c == cols - 1)
-					cout << "*";
+					cout << "|";
 				else
 					cout << " ";
 				++c;
