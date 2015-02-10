@@ -50,4 +50,14 @@ func loops() {
     for j := 1; j <= 10; j++ {
         fmt.Print(j) 
     }
+
+    fmt.Println()
+
+    // Using switch to selectively print English
+    for k := 1; k <= 10; k++ {
+        switch k {
+        case 2: fmt.Println("Two")
+        case 4: fmt.Println("Four")
+        }
+    }
 }
