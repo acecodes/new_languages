@@ -23,6 +23,8 @@ func main() {
     fmt.Println(a, b, c)
     celsius()
     loops()
+    arrays()
+    maps()
 }
 
 func celsius() {
@@ -60,4 +62,44 @@ func loops() {
         case 4: fmt.Println("Four")
         }
     }
+}
+
+func arrays() {
+    // Experimenting with arrays
+    var array1 [10]int
+    array1[0] = 1
+    array1[5] = 40
+    fmt.Println("My array: ", array1)
+    fmt.Println("My array's size: ", len(array1))
+
+    // Using the array shorthand
+    array2 := [5]float64{
+        1,
+        5,
+        92,
+        105,
+        3,
+    }
+
+    slice1 := array2[0:2]
+    slice2 := append(slice1, 4)
+    fmt.Println(slice1, slice2)
+
+    // Print the elements of the array
+    for i := 0; i < 10; i++ {
+        fmt.Print(array1[i])
+    }
+
+    fmt.Println()
+}
+
+func maps() {
+    map1 := make(map[string]int)
+    map1["key"] = 10
+    fmt.Println(map1["key"])
+    map1["boom"] = 5
+    fmt.Println(map1["boom"])
+    fmt.Println(map1)
+    delete(map1, "boom")
+    fmt.Println(map1)
 }
