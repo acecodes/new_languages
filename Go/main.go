@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "math"
 
 // Exploring the basics of Go
 
@@ -14,27 +15,27 @@ var (
 	c = 25
 )
 
-func main() {
-	hw2 := "Hello world!" // Short syntax
-	fmt.Println(hw2)
-	fmt.Println(x)
-	fmt.Println("1 + 1.5 =", 1+1.5) // Automatically converts to float
-	fmt.Println(hw[0])
-	fmt.Println(a, b, c)
-	fmt.Println("72 degrees F =", celsius(72.0), "Celsius")
-	loops()
-	arrays()
-	maps()
-	avgArray := []float64{1, 2, 3}
-	fmt.Println("Average of", avgArray, "=", averages(avgArray))
-	addArray := []int{1, 2, 3, 5, 7}
-	fmt.Println("Result of adding", addArray, "=", add(addArray...))        // Use an array slice
-	fmt.Println("Result of adding a bunch of args =", add(5, 5, 10, 2, 10)) // Use ints
-	closure()
-	next := evenGenerator()
-	fmt.Println(next()) // 0
-	fmt.Println(next()) // 2
-	fmt.Println(next()) // 4
+// Structs
+type Circle struct {
+	x, y, r float64
+}
+
+type Person struct {
+	Name string
+}
+
+func (p *Person) Talk() {
+	fmt.Println("Hello, my name is", p.Name)
+}
+
+type Android struct {
+	Person // Android is a person
+	Model  string
+}
+
+type Robot struct {
+	Person Person // Robot has a person
+	Model  string
 }
 
 func celsius(c float64) float64 {
@@ -106,6 +107,7 @@ func arrays() {
 }
 
 func maps() {
+	// Fun with Go maps
 	map1 := make(map[string]int)
 	map1["key"] = 10
 	fmt.Println(map1["key"])
@@ -117,6 +119,7 @@ func maps() {
 }
 
 func averages(xs []float64) float64 {
+	// Average an array of numbers
 	total := 0.0
 	for _, v := range xs {
 		total += v
@@ -153,4 +156,69 @@ func evenGenerator() func() uint {
 		i += 2
 		return
 	}
+}
+
+func first() {
+	fmt.Println("Print this first")
+}
+
+func last() {
+	// This will be deferred until the end of the program
+	fmt.Println("Print this last")
+}
+
+func one(xPtr *int) {
+	// Change value of input variable to one
+	*xPtr = 1
+}
+
+func circleArea(c Circle) float64 {
+	return math.Pi * c.r * c.r
+}
+
+func (c *Circle) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+func main() {
+	hw2 := "Hello world!" // Short syntax
+	fmt.Println(hw2)
+	fmt.Println(x)
+	fmt.Println("1 + 1.5 =", 1+1.5) // Automatically converts to float
+	fmt.Println(hw[0])
+	fmt.Println(a, b, c)
+	fmt.Println("72 degrees F =", celsius(72.0), "Celsius")
+	loops()
+	arrays()
+	maps()
+	avgArray := []float64{1, 2, 3}
+	fmt.Println("Average of", avgArray, "=", averages(avgArray))
+	addArray := []int{1, 2, 3, 5, 7}
+	fmt.Println("Result of adding", addArray, "=", add(addArray...))        // Use an array slice
+	fmt.Println("Result of adding a bunch of args =", add(5, 5, 10, 2, 10)) // Use ints
+	closure()
+	next := evenGenerator() // Create instance of generator
+	fmt.Println(next())     // 0
+	fmt.Println(next())     // 2
+	fmt.Println(next())     // 4
+	defer last()            // Will not run until the main() exits
+	first()
+	x := 5
+	one(&x)
+	fmt.Println("Converted 5 to", x, "using pointers")
+	var c Circle // Instance of Circle with zeros in each field
+	fmt.Println(c)
+	c.x = 5
+	c.y = 5
+	c.r = 9
+	d := Circle{x: 0, y: 5, r: 2} // Instance of Circle with defined field values
+	fmt.Println(d)
+	fmt.Println("Area of Circle d =", circleArea(d)) // Using standalone function
+	fmt.Println("Area of Circle c =", c.area())      // Using a method of the instance
+	a := new(Android)
+	a.Name = "Andy the Android"
+	b := new(Robot)
+	b.Person.Name = "Robby the Robot"
+	a.Talk()        // Inherited Talk
+	b.Person.Talk() // Composed Talk
 }
