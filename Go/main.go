@@ -38,6 +38,20 @@ type Robot struct {
 	Model  string
 }
 
+// Interfaces
+type Shape interface {
+	area() float64
+}
+
+// Function that uses the interface
+func totalArea(shapes ...Shape) float64 {
+	var area float64
+	for _, s := range shapes {
+		area += s.area()
+	}
+	return area
+}
+
 func celsius(c float64) float64 {
 	// Convert temperatures to Celsius
 	return (c - 32.0) * (5.0 / 9.0)
@@ -219,6 +233,7 @@ func main() {
 	a.Name = "Andy the Android"
 	b := new(Robot)
 	b.Person.Name = "Robby the Robot"
-	a.Talk()        // Inherited Talk
-	b.Person.Talk() // Composed Talk
+	a.Talk()                   // Inherited Talk
+	b.Person.Talk()            // Composed Talk
+	fmt.Println(totalArea(&c)) // Call the interface method
 }
