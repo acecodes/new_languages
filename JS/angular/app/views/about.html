@@ -1,13 +1,38 @@
 <div ng-controller="testController as test">
 <p>This is the about view.</p>
 <p>Testing Angular expressions: {{ "Hello " + "World!" }}</p>
-<p>Testing an object with expressions:<br />
-<div ng-repeat="obj in test.testObjs | limitTo: 1">
-<hr>
-<h3> Name: {{ obj.name }} </h3>
-<h3> Price: {{ obj.price | currency }} </h3>
-<h3> Sold Out?: {{ obj.soldOut }} </h3>
-<button ng-show="obj.canPurchase">Buy Now</button>
-</hr>
-</div>
+    
+    <div ng-repeat="obj in test.testObjs">
+    <hr>
+    <section ng-controller="PanelController as panel">
+    <ul class="nav nav-pills">
+        <li ng-class="{ active:panel.isSelected(1) }">
+        <a href ng-click="panel.selectTab(1)">Name</a> </li>
+        <li ng-class="{ active:panel.isSelected(2) }"> 
+        <a href ng-click="panel.selectTab(2)">Sold Out?</a> </li>
+        <li ng-class="{ active:panel.isSelected(3) }">
+        <a href ng-click="panel.selectTab(3)">Price</a> </li>
+    </ul>
+
+    <div class="panel" ng-show="panel.tab === 1">
+     <h4>Description</h4>
+     <p>{{ obj.name }}</p>
+    </div>
+
+    <div class="panel" ng-show="panel.tab === 2">
+     <h4>Specifications</h4>
+     <p>Sold out?: {{ obj.soldOut }}</p>
+    </div>
+
+    <div class="panel" ng-show="panel.tab === 3">
+     <h4>Reviews</h4>
+     <p>{{ obj.price | currency }}</p>
+    </div>
+     <button ng-show="obj.canPurchase">Buy Now</button>
+    </section>
+    </hr>
+
+    </div>
+<br />
+
 </div>
