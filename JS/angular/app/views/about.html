@@ -2,7 +2,7 @@
 <p>This is the about view.</p>
 <p>Testing Angular expressions: {{ "Hello " + "World!" }}</p>
     
-    <div ng-repeat="obj in test.testObjs">
+<div ng-repeat="obj in test.testObjs">
     <hr>
     <section ng-controller="PanelController as panel">
     <ul class="nav nav-pills">
@@ -12,27 +12,63 @@
         <a href ng-click="panel.selectTab(2)">Sold Out?</a> </li>
         <li ng-class="{ active:panel.isSelected(3) }">
         <a href ng-click="panel.selectTab(3)">Price</a> </li>
+        <li ng-class="{ active:panel.isSelected(4) }">
+        <a href ng-click="panel.selectTab(4)">Reviews</a> </li>
     </ul>
 
-    <div class="panel" ng-show="panel.tab === 1">
-     <h4>Description</h4>
+    <div class="panel" ng-show="panel.isSelected(1)">
+     <h4>Name</h4>
      <p>{{ obj.name }}</p>
     </div>
 
-    <div class="panel" ng-show="panel.tab === 2">
-     <h4>Specifications</h4>
+    <div class="panel" ng-show="panel.isSelected(2)">
+     <h4>Sold Out Status</h4>
      <p>Sold out?: {{ obj.soldOut }}</p>
     </div>
 
-    <div class="panel" ng-show="panel.tab === 3">
-     <h4>Reviews</h4>
+    <div class="panel" ng-show="panel.isSelected(3)">
+     <h4>Price</h4>
      <p>{{ obj.price | currency }}</p>
     </div>
      <button ng-show="obj.canPurchase">Buy Now</button>
+    
+    <div class="panel" ng-show="panel.isSelected(4)">
+     <h4>Reviews</h4>
+     <blockquote ng-repeat="review in obj.reviews">
+      <b>Stars: {{ review.stars }}</b><br />
+      {{ review.body }}
+      <cite>by: {{ review.author }}</cite>
+    </blockquote>
+
+    <!-- Real-time form -->
+    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(obj)">
+     <blockquote>
+        <b>Stars: {{ reviewCtrl.review.stars }}</b><br />
+        {{ reviewCtrl.review.body }}
+        <cite>by: {{ reviewCtrl.review.author }}</cite>
+    </blockquote> 
+        <select ng-model="reviewCtrl.review.stars">
+          <option value="1" selected="selected">1 star</option>
+          <option value="2">2 star</option>
+          <option value="3">3 star</option>
+          <option value="4">4 star</option>
+          <option value="5">5 star</option>
+        </select>
+        <textarea ng-model="reviewCtrl.review.body" placeholder="Write a short review..."></textarea>
+        <label>by:</label>
+        <input placeholder="yourname@domain.com" ng-model="reviewCtrl.review.author" type="email" />
+        <input type="submit" value="Submit" />
+    </form>
+
+
+    </div>
+
+    <h4>
+
     </section>
     </hr>
 
     </div>
-<br />
+    <br />
 
 </div>
