@@ -1,5 +1,5 @@
 'use strict';
-
+(function () {
 /**
  * @ngdoc function
  * @name jsApp.controller:AboutCtrl
@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the jsApp
  */
-angular.module('jsApp')
+var app = angular.module('aceApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -15,3 +15,31 @@ angular.module('jsApp')
       'Karma'
     ];
   });
+
+// Array objects to be iterated through
+var testObjs = [
+   {
+    name: 'Bob Object',
+    price: 2.50,
+    canPurchase: true,
+    soldOut: false
+   },
+   {
+    name: 'Steve Object',
+    price: 3.75,
+    canPurchase: false,
+    soldOut: true
+   },
+   {
+    name: 'Barbara Object',
+    price: 5.00,
+    canPurchase: true,
+    soldOut: false
+   }
+
+];
+
+app.controller('testController', function () {
+    this.testObjs = testObjs;
+});
+})();

@@ -1,5 +1,5 @@
 'use strict';
-
+(function () {
 /**
  * @ngdoc function
  * @name jsApp.controller:MainCtrl
@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the jsApp
  */
-angular.module('jsApp')
+angular.module('aceApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -15,3 +15,6 @@ angular.module('jsApp')
       'Karma'
     ];
   });
+
+
+})();

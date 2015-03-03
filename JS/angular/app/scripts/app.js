@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('jsApp', [
+  .module('aceApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
