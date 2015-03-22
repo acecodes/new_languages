@@ -81,3 +81,13 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Green and red borders for form inputs when they're valid or invalid */
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89;
+}
