@@ -35,5 +35,24 @@ fn main() {
     type Float = f64;
     // Use new type name
     let _test_float: Float = 4.2;
+
+    // Bind an expression to a variable
+    let _z = { 2 * abc };
+
+    // If-else statements
+    if _z > 3 {
+        println!("Yep, greater than 3!");
+    } else {
+        println!("Nope, less than 3...")
+    }
+
+    // For loops
+    for n in 1..101 {
+        if n % 15 == 0 {
+            println!("{}: FizzBuzz", n);
+        }
+    }
+
+    println!("{}", _z);
 }
 
