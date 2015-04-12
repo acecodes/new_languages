@@ -10,3 +10,4 @@ So far, I have these languages in the repo:
  2. Java
  3. JavaScript
  4. Go
+ 5. Rust
