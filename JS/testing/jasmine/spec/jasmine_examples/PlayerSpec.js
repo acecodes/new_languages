@@ -1,12 +1,3 @@
-describe("Hello world", function() {
-  var Hello = require('../../lib/ace/ace')
-  var hello = new Hello();
-
-    it("says hello", function() {
-        expect(hello.helloWorld()).toEqual("Hello world!");
-    })
-})
-
 describe("Player", function() {
     var Player = require('../../lib/jasmine_examples/Player');
     var Song = require('../../lib/jasmine_examples/Song');
