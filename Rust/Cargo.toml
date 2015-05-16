@@ -1,9 +1,0 @@
-[package]
-
-name = "Ace's Hello World"
-version = "0.0.1"
-author = "Ace Eddleman"
-
-[[bin]]
-
-name = "hello_world"
