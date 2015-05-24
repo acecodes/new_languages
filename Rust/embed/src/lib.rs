@@ -1,7 +1,7 @@
-#[no_mangle]
 // FFI library
 use std::thread;
 
+#[no_mangle]
 pub extern fn process() {
     let handles: Vec<_> = (0..10).map(|_| {
         thread::spawn(|| {
