@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+#include <stdio.h>
+
 using namespace std;
 
 struct Vector {
@@ -20,7 +23,9 @@ int main() {
     v.y = 50.4;
     v.z = 100.1;
 
-    // cout << "A 3-space vector at " << v.x << ", " << v.y << ", " << v.z << endl;
+    cout << "Memory address of x: " << &v.x << endl;
+
+    cout << "A 3-space vector at " << v.x << ", " << v.y << ", " << v.z << endl;
 
     Player me; // Instance of Player called me
 
@@ -31,5 +36,12 @@ int main() {
 
     Player* ptrMe; // Declare a pointer for Player
     ptrMe = &me; // Link to instance me
-    
+
+    cout << "Memory address of me: " << ptrMe << endl;
+
+    ptrMe->name = "Sam Harris"; // Using the pointer to change player's name
+
+    printf("Using printf instead of cout to display this name: %s", me.name.c_str());
+    cout << "My player's name is now: " << me.name << endl;
+
 }
