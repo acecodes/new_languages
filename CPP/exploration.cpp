@@ -44,4 +44,18 @@ int main() {
     printf("Using printf instead of cout to display this name: %s", me.name.c_str());
     cout << "My player's name is now: " << me.name << endl;
 
+    // Control flow
+    int x = 1;
+    int y = 0;
+
+    cout << "Is x equal to y? C++ says: " << boolalpha << (x == y) << endl;
+
+    bool isHungry = true;
+
+    if (isHungry == true) {
+        cout << "Let's eat!" << endl;
+    } else {
+        cout << "Don't stuff your face!" << endl;
+    }
+
 }
