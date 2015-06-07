@@ -48,11 +48,15 @@ int main() {
     int x = 1;
     int y = 0;
 
+    int test = 25;
+
     cout << "Is x equal to y? C++ says: " << boolalpha << (x == y) << endl;
+    cout << "Variable 'test' turned into Boolean: " << !!test << endl;
+
 
     bool isHungry = true;
 
-    if (isHungry == true) {
+    if (true == isHungry) { // Yoda format
         cout << "Let's eat!" << endl;
     } else {
         cout << "Don't stuff your face!" << endl;
