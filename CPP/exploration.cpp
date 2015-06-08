@@ -14,6 +14,13 @@ struct Player {
     Vector position;
 };
 
+struct Weapon {
+    string name;
+    int strength;
+    Player creator;
+    bool active;
+};
+
 
 int main() {
     Vector v; // Creating instance of vector called v
@@ -28,11 +35,17 @@ int main() {
     cout << "A 3-space vector at " << v.x << ", " << v.y << ", " << v.z << endl;
 
     Player me; // Instance of Player called me
+    Weapon axe; //
 
     me.name = "Richard Dawkins";
     me.hp = 100;
     me.position.x = me.position.y = me.position.z = 0; // Set all values to 0
     cout << "My player's name is: " << me.name << endl;
+
+    axe.name = "Axe";
+    axe.strength = 25;
+    axe.creator = me;
+    axe.active = true;
 
     Player* ptrMe; // Declare a pointer for Player
     ptrMe = &me; // Link to instance me
@@ -53,6 +66,7 @@ int main() {
     cout << "Is x equal to y? C++ says: " << boolalpha << (x == y) << endl;
     cout << "Variable 'test' turned into Boolean: " << !!test << endl;
 
+    cout << "My first weapon is an " << axe.name << endl;
 
     bool isHungry = true;
 
