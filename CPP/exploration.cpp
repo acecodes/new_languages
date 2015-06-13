@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <vector>
 
 using namespace std;
 
@@ -75,5 +76,13 @@ int main() {
     } else {
         cout << "Don't stuff your face!" << endl;
     }
+
+    vector<int> vector_test;
+    int test_input;
+    test_input = 5;
+    vector_test.push_back(test_input);
+
+    cout << "My vector contains " << vector_test.size() << " elements." << endl;
+
 
 }
