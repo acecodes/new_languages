@@ -22,67 +22,47 @@ struct Weapon {
     bool active;
 };
 
+double square(double x) {
+    return x * x;
+}
 
-int main() {
+void print_square(double x) {
+    cout << "The square of " << x << " is " << square(x) << endl;
+}
+
+void create_player(string name, int hp, float x, float y, float z) {
     Vector v; // Creating instance of vector called v
     
     // Set instance variables
-    v.x = 20.2;
-    v.y = 50.4;
-    v.z = 100.1;
+    v.x = x;
+    v.y = y;
+    v.z = z;
 
-    cout << "Memory address of x: " << &v.x << endl;
+    Player player;
 
-    cout << "A 3-space vector at " << v.x << ", " << v.y << ", " << v.z << endl;
+    player.name = name;
+    player.hp = hp;
+    player.position = v;
 
-    Player me; // Instance of Player called me
-    Weapon axe; //
+    cout << "You have created a player named " << player.name << " with " << player.hp << " HP." << endl;
 
-    me.name = "Richard Dawkins";
-    me.hp = 100;
-    me.position.x = me.position.y = me.position.z = 0; // Set all values to 0
-    cout << "My player's name is: " << me.name << endl;
 
-    axe.name = "Axe";
-    axe.strength = 25;
-    axe.creator = me;
-    axe.active = true;
+}
 
-    Player* ptrMe; // Declare a pointer for Player
-    ptrMe = &me; // Link to instance me
+void vector_testing() {
+    // Warning: this will not work with anything less than C++11
+    vector<int> vector_test {5, 8, 1, 3, 7, 9, 12, 10, 15};
 
-    cout << "Memory address of me: " << ptrMe << endl;
-
-    ptrMe->name = "Sam Harris"; // Using the pointer to change player's name
-
-    printf("Using printf instead of cout to display this name: %s", me.name.c_str());
-    cout << "My player's name is now: " << me.name << endl;
-
-    // Control flow
-    int x = 1;
-    int y = 0;
-
-    int test = 25;
-
-    cout << "Is x equal to y? C++ says: " << boolalpha << (x == y) << endl;
-    cout << "Variable 'test' turned into Boolean: " << !!test << endl;
-
-    cout << "My first weapon is an " << axe.name << endl;
-
-    bool isHungry = true;
-
-    if (true == isHungry) { // Yoda format
-        cout << "Let's eat!" << endl;
-    } else {
-        cout << "Don't stuff your face!" << endl;
+    for (auto i = 0; i < vector_test.size(); i++) {
+        cout << vector_test[i] << ' ';
     }
+}
 
-    vector<int> vector_test;
-    int test_input;
-    test_input = 5;
-    vector_test.push_back(test_input);
 
-    cout << "My vector contains " << vector_test.size() << " elements." << endl;
+int main() {
 
+    print_square(5);
+    create_player("Stephen Hawking", 100, 2.0, 5.0, 8.0);
+    vector_testing();
 
 }
