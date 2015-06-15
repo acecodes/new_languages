@@ -30,6 +30,27 @@ void print_square(double x) {
     cout << "The square of " << x << " is " << square(x) << endl;
 }
 
+void copy_fct() {
+    int v1[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int v2[10];
+
+    for (auto i=0; i != 10; ++i) {
+        v2[i] = v1[i];
+    }
+}
+
+void print() {
+    int v[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    for (auto x:v) {
+        cout << x << '\n';
+    }
+
+    for (auto x: {15, 18, 29, 17, 92}) {
+        cout << x << '\n';
+    }
+}
+
 void create_player(string name, int hp, float x, float y, float z) {
     Vector v; // Creating instance of vector called v
     
@@ -64,5 +85,6 @@ int main() {
     print_square(5);
     create_player("Stephen Hawking", 100, 2.0, 5.0, 8.0);
     vector_testing();
+    print();
 
 }
