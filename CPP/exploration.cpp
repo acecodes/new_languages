@@ -79,12 +79,37 @@ void vector_testing() {
     }
 }
 
+bool ask_question() {
+    cout << "Does 2 + 2 actually equal 4?" << endl;
+
+    char answer = 0;
+    cin >> answer;
+
+    switch (answer) {
+        case 'y': 
+            return true;
+        case 'n': 
+            return false;
+        default:
+            cout << "That is not a valid answer. This is taken as a no." << endl;
+            return false;
+    }
+
+}
+
 
 int main() {
 
+    const int a = 10;
+    cout << "Can't change this: " << a << endl;
+
+
+    
     print_square(5);
     create_player("Stephen Hawking", 100, 2.0, 5.0, 8.0);
     vector_testing();
     print();
+
+    ask_question();
 
 }
