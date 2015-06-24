@@ -10,14 +10,24 @@ public class DogTest {
     // Instantiate a new Dog
     Dog d = new Dog();
 
-    // Define Dog's properties
+    // Define inherited Animal properties
     d.size = 50;
+    // d.age = 10;
+    d.mammal = true;
+
+    // Define Dog's properties
     d.name = dog_names[choice];
     d.breed = "Doberman";
     d.bark = "Woooof!";
 
     // Let out a good old-fashioned woof
     System.out.println(d.bark());
+
+    // Is this Animal a mammal?
+    System.out.println(d.mammal);
+
+    // How old is he? (Inheritance test - Animal default is 25)
+    System.out.println(d.age);
 
   }
 
