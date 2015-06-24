@@ -1,15 +1,17 @@
 public class Dog {
 
-    private static String bark() {
-      return "Woof!";
+    int size;
+    String breed;
+    String name;
+    String bark;
+
+    public String bark() {
+      return bark;
     }
 
-    private static String name(String name) {
+    public String name(String name) {
       return "Dog's name is: " + name;
     }
 
-    public static void main(String[] args) {
-      System.out.println(bark());
-      System.out.println(name("Sparky"));
-    }
+    public static void main(String[] args) {};
 }
