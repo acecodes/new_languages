@@ -3,21 +3,18 @@
 #include <stdio.h>
 #include <vector>
 
-using namespace std;
-
-
 struct Vector {
     float x, y, z;
 };
 
 struct Player {
-    string name;
+    std::string name;
     int hp;
     Vector position;
 };
 
 struct Weapon {
-    string name;
+    std::string name;
     int strength;
     Player creator;
     bool active;
@@ -31,13 +28,13 @@ public:
     }
 
     void print_square(double x) {
-        cout << "The square of " << x << " is " << square(x) << endl;
+        std::cout << "The square of " << x << " is " << square(x) << std::endl;
     }
 };
 
 class Test_Functions {
 public:
-    void create_player(string name, int hp, float x, float y, float z) {
+    void create_player(std::string name, int hp, float x, float y, float z) {
         Vector v; // Creating instance of vector called v
         
         // Set instance variables
@@ -51,25 +48,25 @@ public:
         player.hp = hp;
         player.position = v;
 
-        cout << "You have created a player named " << player.name << " with " << player.hp << " HP." << endl;
+        std::cout << "You have created a player named " << player.name << " with " << player.hp << " HP." << std::endl;
 
 
     }
 
     void vector_testing() {
         // Warning: this will not work with anything less than C++11
-        vector<int> vector_test {5, 8, 1, 3, 7, 9, 12, 10, 15};
+        std::vector<int> vector_test {5, 8, 1, 3, 7, 9, 12, 10, 15};
 
         for (auto i = 0; i < vector_test.size(); i++) {
-            cout << vector_test[i] << ' ';
+            std::cout << vector_test[i] << ' ';
         }
     }
 
     bool ask_question() {
-        cout << "Does 2 + 2 actually equal 4?" << endl;
+        std::cout << "Does 2 + 2 actually equal 4?" << std::endl;
 
         char answer = 0;
-        cin >> answer;
+        std::cin >> answer;
 
         switch (answer) {
             case 'y': 
@@ -77,7 +74,7 @@ public:
             case 'n': 
                 return false;
             default:
-                cout << "That is not a valid answer. This is taken as a no." << endl;
+                std::cout << "That is not a valid answer. This is taken as a no." << std::endl;
                 return false;
         }
 
@@ -96,11 +93,11 @@ public:
         int v[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         for (auto x:v) {
-            cout << x << '\n';
+            std::cout << x << '\n';
         }
 
         for (auto x: {15, 18, 29, 17, 92}) {
-            cout << x << '\n';
+            std::cout << x << '\n';
         }
     }
 };
@@ -110,7 +107,7 @@ public:
 int main() {
 
     const int a = 10;
-    cout << "Can't change this: " << a << endl;
+    std::cout << "Can't change this: " << a << std::endl;
 
     Test_Functions tf;
     Math math;
