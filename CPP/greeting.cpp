@@ -2,21 +2,19 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
 
-	cout << "Please enter your first name: ";
+	std::cout << "Please enter your first name: ";
 	string first_name;
-	cin >> first_name;
+	std::cin >> first_name;
 
-	cout << "Please enter your last name: ";
+	std::cout << "Please enter your last name: ";
 	string last_name;
-	cin >> last_name;
+	std::cin >> last_name;
 
-	cout << "Please enter a number for the spacing you'd like to see: ";
+	std::cout << "Please enter a number for the spacing you'd like to see: ";
 	int pad;
-	cin >> pad;
+	std::cin >> pad;
 
 	// Build the welcome message
 	const string greeting = "Hello, " + first_name + " " + last_name + "!";
@@ -29,7 +27,7 @@ int main() {
 	const string::size_type cols = greeting.size() + pad * 2 + 2;
 
 	// Separate output from input
-	cout << endl;
+	std::cout << endl;
 
 	// Invariant: r rows have been written so far
 	for (int r = 0; r != rows; ++r) {
@@ -41,7 +39,7 @@ int main() {
 
 			// Check to see if it is time to write the greeting
 			if (r == pad + 1 &&  c == pad + 1) {
-				cout << greeting;
+				std::cout << greeting;
 				c += greeting.size();
 			}
 			else {
@@ -49,13 +47,13 @@ int main() {
 				// Check if we are on the border
 				if (r == 0 || r == rows - 1 || 
 					c == 0 || c == cols - 1)
-					cout << "|";
+					std::cout << "|";
 				else
-					cout << " ";
+					std::cout << " ";
 				++c;
 			}
 		}
-		cout << endl;
+		std::cout << endl;
 	}
 
 
