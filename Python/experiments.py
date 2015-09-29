@@ -4,6 +4,7 @@ from random import choice
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 Flashcards = collections.namedtuple('Flashcard', ['question', 'answer'])
 
+
 class CardDeck:
 
     """
@@ -32,14 +33,18 @@ class FlashcardCollection:
     A collection of simple Q&A flashcards.
     """
 
-    def __init__(self):
+    def __init__(self, name):
         self._flashcards = []
+        self._name = name
 
     def __getitem__(self, position):
         q = self._flashcards[position][0]
         a = self._flashcards[position][1]
         statement = 'Q: {}, A: {}'.format(q, a)
         return statement
+
+    def __str__(self):
+        return 'Flashcards in {} deck: {}'.format(self._name, self._flashcards)
 
     def __len__(self):
         return len(self._flashcards)
@@ -55,6 +60,6 @@ if __name__ == '__main__':
     print(CardDeck.get_random(cards))
     print(Card('Q', 'spades') in cards)
 
-    flashcards = FlashcardCollection()
+    flashcards = FlashcardCollection('My Cards')
     flashcards.add_card('What is 1+1?', '2')
-    print(flashcards[0])
+    print(flashcards)
