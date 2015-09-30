@@ -53,6 +53,9 @@ class FlashcardCollection:
         new_card = Flashcards(question, answer)
         self._flashcards.append(new_card)
 
+# Generator practice
+gen1 = (x*2 for x in [1, 2, 3, 4, 5])
+
 
 if __name__ == '__main__':
     cards = CardDeck()
@@ -61,5 +64,7 @@ if __name__ == '__main__':
     print(Card('Q', 'spades') in cards)
 
     flashcards = FlashcardCollection('My Cards')
+    print(bool(flashcards))
     flashcards.add_card('What is 1+1?', '2')
     print(flashcards)
+    print(bool(flashcards))
