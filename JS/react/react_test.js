@@ -12,6 +12,6 @@ var CommentBox = React.createClass({
 })
 
 ReactDOM.render(
-    <h1>Testing, 123</h1>,
+    <CommentBox />,
     document.getElementById('content')
 );
